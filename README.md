@@ -32,6 +32,9 @@ Example `.env` (do NOT commit your real secrets):
 AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=...your-real-string-here..."
 TODO_CONTAINER="todo-data"
 PORT=8000
+```
+- Build Docker 
+```env
 docker build -t tiny-todo:latest .
 docker run --rm \
   -p 8080:8000 \
