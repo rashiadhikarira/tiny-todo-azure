@@ -1,24 +1,26 @@
 # Tiny To-Do App (Flask + Azure)
 
 ## 1) Executive Summary
-**Problem.** With the daily workloads of everyday life, students and small teams just need a lightweight way to track and place tasks in an organized list without having to constantly log in to heavy tools or navigate complex websites. When in a rush, students need a simple to do with minimal functions that allow one to add tasks quickly, remove them when finished, or cross tasks off when they are finally complete. 
-**Solution.** Tiny To-Do is a minimal Flask web app that stores todos in Azure Blob Storage and runs in a Docker container. It is a solution for students looking for such a simple app. 
+- **Problem.** With the daily workloads of everyday life, students and small teams just need a lightweight way to track and place tasks in an organized list without having to constantly log in to heavy tools or navigate complex websites. When in a rush, students need a simple to do with minimal functions that allow one to add tasks quickly, remove them when finished, or cross tasks off when they are finally complete. 
+- **Solution.** Tiny To-Do is a minimal Flask web app that stores todos in Azure Blob Storage and runs in a Docker container. It is a solution for students looking for such a simple app. 
 
 ## 2) System Overview
 **Course Concept(s).**  
 - Flask APIs (web services module)  
 - Cloud storage via Azure Blob Storage
+
 **Architecture Diagram.**  
 ![Sample App Function](assets/app.png)
+
 API Endpoints:
   - `GET /api/todos`
   - `POST /api/todos`
   - `POST /api/todos/<id>/toggle`
   - `DELETE /api/todos/<id>`
-**Data/Models/Services.**
-- Data: list of todos: `[{ "id": str, "text": str, "done": bool }, ...]`.
-- Storage: Azure Blob Storage, container `todo-data`.
-- Services: Flask app running in Docker and Azure App Service deployment
+- **Data/Models/Services.**
+  - Data: list of todos: `[{ "id": str, "text": str, "done": bool }, ...]`.
+  - Storage: Azure Blob Storage, container `todo-data`.
+  - Services: Flask app running in Docker and Azure App Service deployment
 
 ## 3) How to Run (Local)
 
