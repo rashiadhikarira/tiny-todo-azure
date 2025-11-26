@@ -30,14 +30,10 @@ docker run --rm -p 8080:8080 --env-file .env myapp:latest
 curl http://localhost:8080/health
 
 ## 4) Design Decisions 
-**Why this concept?** 
-- I chose to design the to-do list while keeping this specific design in mind because it allowed me to use concepts that I used in class while also creating a simple concept that is easy to use and build upon for future use. While this project is more simple than other alternative designs that were considered, it allows users to learn mechanics quickly and creates a simple and fast way to keep track of daily tasks without the hassle of complex learning curves. 
-**Alternatives Considered**
-- I considered separating the to-do list into days of the week but finally planned against the idea as it would over complicate the app. The main purpose of the app is to provide a quick and easy way to keep track of daily and everchanging apps in the midst of work-heavy and fast-paced days. If I added multiple days of the week, the quick and "fast-paced" concept of the app would be diminished and provide an added layer of complexity that other apps already provide. 
-**Tradeoffs**
-- All tasks will be stored inside a single JSON blob in Azure Blob Storage. This is easy to manage and works quite well for everyday tasks that are to be deleted by the end of the daybut not ideal for large datasets. If the app were to be scaled to multiple users, it would be smarter to construct and use a proper database. I intentionally avoided using advanced features which would slow down the user experience. However, the tradeoff is that the app is less customizable. The code is simple and easy to maintain but not designed for large-scale extensions. 
-**Security & Privacy**
-- Data lives in a private Azure Blob Storage container; only the app can write to it via its connection string.
+- **Why this concept?** I chose to design the to-do list while keeping this specific design in mind because it allowed me to use concepts that I used in class while also creating a simple concept that is easy to use and build upon for future use. While this project is more simple than other alternative designs that were considered, it allows users to learn mechanics quickly and creates a simple and fast way to keep track of daily tasks without the hassle of complex learning curves. 
+- **Alternatives Considered**I considered separating the to-do list into days of the week but finally planned against the idea as it would over complicate the app. The main purpose of the app is to provide a quick and easy way to keep track of daily and everchanging apps in the midst of work-heavy and fast-paced days. If I added multiple days of the week, the quick and "fast-paced" concept of the app would be diminished and provide an added layer of complexity that other apps already provide. 
+- **Tradeoffs** All tasks will be stored inside a single JSON blob in Azure Blob Storage. This is easy to manage and works quite well for everyday tasks that are to be deleted by the end of the daybut not ideal for large datasets. If the app were to be scaled to multiple users, it would be smarter to construct and use a proper database. I intentionally avoided using advanced features which would slow down the user experience. However, the tradeoff is that the app is less customizable. The code is simple and easy to maintain but not designed for large-scale extensions. 
+- **Security & Privacy** The data lives in a private Azure Blob Storage container; only the app can write to it via its connection string.
 
 ## 5) Results & Evaluation
 I manually tested each API route (add, toggle, delete, list) and included a test in tests/test_health.py, which verifies that the /api/health endpoint returns a successful status.
@@ -46,5 +42,5 @@ I manually tested each API route (add, toggle, delete, list) and included a test
 I want to allow each user to have their own private to-do list. Additionally, I want to work to add more features such as "clear all completed tasks" or "mark all as done" to speed up the user's processes. Finally, as the app gains traction, I want to migrate from JSON to a database for more scalability. 
 
 ## 7) Links
-**GitHub Repo:** https://github.com/rashiadhikarira/tiny-todo-azure
-**Public Cloud App:** https://tiny-todo-26021.azurewebsites.net/
+- **GitHub Repo:** https://github.com/rashiadhikarira/tiny-todo-azure
+- **Public Cloud App:** https://tiny-todo-26021.azurewebsites.net/
