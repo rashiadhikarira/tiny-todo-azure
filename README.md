@@ -21,17 +21,28 @@ API Endpoints:
 - Services: Flask app running in Docker and Azure App Service deployment
 
 ## 3) How to Run (Local)
+
+### Prerequisites
 - Install [Docker](https://docs.docker.com/get-docker/).
-- Create a `.env` file in the project root based on `.env.example` and fill in **your** Azure Blob connection string.
-  - Example .env : AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=...your-real-string-here..."
-    TODO_CONTAINER="todo-data"
-    PORT=8000
-- docker build -t tiny-todo:latest .
-- docker run --rm \
+- Create a `.env` file in the project root based on `.env.example`.
+
+Example `.env` (do NOT commit your real secrets):
+
+```env
+AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=...your-real-string-here..."
+TODO_CONTAINER="todo-data"
+PORT=8000
+docker build -t tiny-todo:latest .
+docker run --rm \
   -p 8080:8000 \
   --env-file .env \
   tiny-todo:latest
-- open app in browser: http://localhost:8080/
+```
+- Open the App: http://localhost:8080/
+- Health Check:
+```env
+curl http://localhost:8080/api/health
+```
 
 ## 4) Design Decisions 
 - **Why this concept?** I chose to design the to-do list while keeping this specific design in mind because it allowed me to use concepts that I used in class while also creating a simple concept that is easy to use and build upon for future use. While this project is more simple than other alternative designs that were considered, it allows users to learn mechanics quickly and creates a simple and fast way to keep track of daily tasks without the hassle of complex learning curves. 
